@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Price Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 650px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        .header .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group .description {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 10px;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px 15px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #4fc3f7;
+            background: rgba(79, 195, 247, 0.1);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4fc3f7, #0288d1);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 195, 247, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🏠</div>
+            <h1>Boston House Price Prediction</h1>
+            <p>Enter the property details below to get an estimated price</p>
+        </div>
+
+        <form action="/predict" method="POST">
+            <div class="grid">
+
+                <div class="form-group">
+                    <label>CRIM</label>
+                    <span class="description">Per capita crime rate</span>
+                    <input type="number" step="any" name="CRIM" placeholder="e.g. 0.00632" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ZN</label>
+                    <span class="description">Residential land zone</span>
+                    <input type="number" step="any" name="ZN" placeholder="e.g. 18.0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>INDUS</label>
+                    <span class="description">Non-retail business acres</span>
+                    <input type="number" step="any" name="INDUS" placeholder="e.g. 2.31" required>
+                </div>
+
+                <div class="form-group">
+                    <label>CHAS</label>
+                    <span class="description">River view (0 or 1)</span>
+                    <input type="number" step="any" name="CHAS" placeholder="0 or 1" required>
+                </div>
+
+                <div class="form-group">
+                    <label>NOX</label>
+                    <span class="description">Pollution level</span>
+                    <input type="number" step="any" name="NOX" placeholder="e.g. 0.538" required>
+                </div>
+
+                <div class="form-group">
+                    <label>RM</label>
+                    <span class="description">Average rooms per dwelling</span>
+                    <input type="number" step="any" name="RM" placeholder="e.g. 6.575" required>
+                </div>
+
+                <div class="form-group">
+                    <label>AGE</label>
+                    <span class="description">Units built before 1940 (%)</span>
+                    <input type="number" step="any" name="AGE" placeholder="e.g. 65.2" required>
+                </div>
+
+                <div class="form-group">
+                    <label>DIS</label>
+                    <span class="description">Distance to employment</span>
+                    <input type="number" step="any" name="DIS" placeholder="e.g. 4.09" required>
+                </div>
+
+                <div class="form-group">
+                    <label>RAD</label>
+                    <span class="description">Highway accessibility</span>
+                    <input type="number" step="any" name="RAD" placeholder="e.g. 1.0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>PTRATIO</label>
+                    <span class="description">Pupil-teacher ratio</span>
+                    <input type="number" step="any" name="PTRATIO" placeholder="e.g. 15.3" required>
+                </div>
+
+                <div class="form-group">
+                    <label>LSTAT</label>
+                    <span class="description">% lower status population</span>
+                    <input type="number" step="any" name="LSTAT" placeholder="e.g. 4.98" required>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn">
+                🔍 Predict House Price
+            </button>
+        </form>
+    </div>
+</body>
+</html>

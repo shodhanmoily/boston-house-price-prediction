@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 650px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, #4fc3f7, #0288d1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .price-card .label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .price-card .amount {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .price-card .amount-usd {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feature-item .name {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-item .value {
+            color: #4fc3f7;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: transparent;
+            border: 2px solid #4fc3f7;
+            border-radius: 12px;
+            color: #4fc3f7;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #1a1a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 195, 247, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🏡</div>
+        <h1>Prediction Result</h1>
+        <p class="subtitle">Based on the features you provided</p>
+
+        <!-- Price Result -->
+        <div class="price-card">
+            <div class="label">Estimated House Price</div>
+            <div class="amount">${{ predicted_price_in_thousands }}K</div>
+            <div class="amount-usd">${{ predicted_price_in_dollars }} USD</div>
+        </div>
+
+        <!-- Input Features Summary -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="name">CRIM</span>
+                <span class="value">{{ CRIM }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">ZN</span>
+                <span class="value">{{ ZN }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">INDUS</span>
+                <span class="value">{{ INDUS }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">CHAS</span>
+                <span class="value">{{ CHAS }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">NOX</span>
+                <span class="value">{{ NOX }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">RM</span>
+                <span class="value">{{ RM }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">AGE</span>
+                <span class="value">{{ AGE }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">DIS</span>
+                <span class="value">{{ DIS }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">RAD</span>
+                <span class="value">{{ RAD }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">PTRATIO</span>
+                <span class="value">{{ PTRATIO }}</span>
+            </div>
+            <div class="feature-item">
+                <span class="name">LSTAT</span>
+                <span class="value">{{ LSTAT }}</span>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <a href="/" class="btn"> Predict Again</a>
+    </div>
+</body>
+</html>
