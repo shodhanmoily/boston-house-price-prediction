@@ -1,79 +1,70 @@
-# boston-house-price-prediction
+# Boston House Price Prediction
 
-A Machine Learning API built with FastAPI to predict Boston house prices.
+A Machine Learning web application built with FastAPI to predict Boston house prices based on property features like crime rate, number of rooms, pollution level, and more.
 
 ---
 
-##  Live Demo
-> Deployed on Railway — [Click Here](your-railway-link-here)
+## Live Demo
+
+Deployed on Railway — [Click Here](https://boston-house-price-prediction-production.up.railway.app)
+
+---
+
+## Project Overview
+
+This project uses the Boston Housing Dataset to train a Linear Regression model that predicts the median value of owner-occupied homes. The model is served through a FastAPI web application with a responsive UI and containerized using Docker.
 
 ---
 
 ## Model Performance
+
 | Metric | Score |
 |--------|-------|
 | R² Score | 0.706 |
+| Adjusted R² | 0.683 |
 | MAE | 3.76 |
 | RMSE | 5.35 |
+| Train/Test Split | 70/30 |
 
 ---
 
 ## Tech Stack
-- Python
-- FastAPI
-- Scikit-learn
-- Docker
-- Railway
+
+| Tool | Purpose |
+|------|---------|
+| Python | Programming language |
+| FastAPI | Web framework |
+| Scikit-learn | Machine learning model |
+| Pandas | Data manipulation |
+| StandardScaler | Feature scaling |
+| Jinja2 | HTML templating |
+| Docker | Containerization |
+| Railway | Cloud deployment |
+| GitHub | Version control |
 
 ---
 
-## API Usage
+## Project Structure
+boston-house-price-prediction/
+│
+├── app.py
+├── regmodel.pkl
+├── scaler.pkl
+├── requirement.txt
+├── Dockerfile
+├── .gitignore
+├── README.md
+└── templates/
+├── index.html
+└── result.html
 
-**POST** `/predict`
-
-```json
-{
-    "CRIM"    : 0.00632,
-    "ZN"      : 18.0,
-    "INDUS"   : 2.31,
-    "CHAS"    : 0.0,
-    "NOX"     : 0.538,
-    "RM"      : 6.575,
-    "AGE"     : 65.2,
-    "DIS"     : 4.09,
-    "RAD"     : 1.0,
-    "PTRATIO" : 15.3,
-    "LSTAT"   : 4.98
-}
-```
-
-**Response**
-```json
-{
-    "predicted_price_in_thousands": 31.34,
-    "predicted_price_in_dollars": 31340.00
-}
-```
-
----
-
-##  Run Locally
-```bash
-git clone https://github.com/shodhanmoily/boston-house-price-prediction.git
-cd boston-house-price-prediction
-pip install -r requirement.txt
-uvicorn app:app --reload
-```
-
----
-
-## Run with Docker
-```bash
-docker build -t boston-app .
-docker run -p 8000:8000 boston-app
-```
-
----
 
 ## Author
-**Shodhan Moily** — [@shodhanmoily](https://github.com/shodhanmoily)
+
+**Shodhan Moily**
+- GitHub: [@shodhanmoily](https://github.com/shodhanmoily)
+
+
+## License
+
+This project is licensed under the Apache License 2.0 — see the [LICENSE](LICENSE) file for details.
