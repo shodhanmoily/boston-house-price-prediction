@@ -18,7 +18,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .container {
@@ -28,25 +28,25 @@
             border-radius: 20px;
             padding: 40px;
             width: 100%;
-            max-width: 650px;
+            max-width: 700px;
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
         .icon {
-            font-size: 60px;
+            font-size: clamp(40px, 8vw, 60px);
             margin-bottom: 20px;
         }
 
         h1 {
             color: #ffffff;
-            font-size: 26px;
+            font-size: clamp(20px, 4vw, 26px);
             margin-bottom: 10px;
         }
 
         .subtitle {
             color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px);
             margin-bottom: 35px;
         }
 
@@ -59,7 +59,7 @@
 
         .price-card .label {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 13px;
+            font-size: clamp(11px, 2vw, 13px);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 10px;
@@ -67,19 +67,19 @@
 
         .price-card .amount {
             color: #ffffff;
-            font-size: 48px;
+            font-size: clamp(32px, 8vw, 48px);
             font-weight: 700;
             margin-bottom: 5px;
         }
 
         .price-card .amount-usd {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 18px;
+            font-size: clamp(14px, 3vw, 18px);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-bottom: 30px;
             text-align: left;
@@ -97,14 +97,14 @@
 
         .feature-item .name {
             color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
+            font-size: clamp(10px, 2vw, 12px);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .feature-item .value {
             color: #4fc3f7;
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px);
             font-weight: 600;
         }
 
@@ -115,7 +115,7 @@
             border: 2px solid #4fc3f7;
             border-radius: 12px;
             color: #4fc3f7;
-            font-size: 15px;
+            font-size: clamp(13px, 2vw, 15px);
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
@@ -129,6 +129,45 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(79, 195, 247, 0.4);
         }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 25px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .price-card {
+                padding: 25px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 15px;
+                border-radius: 15px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .price-card {
+                padding: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -137,14 +176,12 @@
         <h1>Prediction Result</h1>
         <p class="subtitle">Based on the features you provided</p>
 
-        <!-- Price Result -->
         <div class="price-card">
             <div class="label">Estimated House Price</div>
             <div class="amount">${{ predicted_price_in_thousands }}K</div>
             <div class="amount-usd">${{ predicted_price_in_dollars }} USD</div>
         </div>
 
-        <!-- Input Features Summary -->
         <div class="features-grid">
             <div class="feature-item">
                 <span class="name">CRIM</span>
@@ -192,8 +229,7 @@
             </div>
         </div>
 
-        <!-- Back Button -->
-        <a href="/" class="btn"> Predict Again</a>
+        <a href="/" class="btn">Predict Again</a>
     </div>
 </body>
 </html>
