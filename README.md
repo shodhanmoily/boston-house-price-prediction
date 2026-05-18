@@ -21,7 +21,8 @@ This project uses the Boston Housing Dataset to train a Linear Regression model 
 | Metric | Score |
 |--------|-------|
 | R² Score | 0.706 |
-| Adjusted R² | 0.683 |
+| Adjusted R² | 0.683 | 
+| MSE | 28.672 |
 | MAE | 3.76 |
 | RMSE | 5.35 |
 | Train/Test Split | 70/30 |
