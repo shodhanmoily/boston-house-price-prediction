@@ -46,6 +46,7 @@ This project uses the Boston Housing Dataset to train a Linear Regression model 
 ---
 
 ## Project Structure
+```text
 boston-house-price-prediction/
 │
 ├── app.py
@@ -55,9 +56,29 @@ boston-house-price-prediction/
 ├── Dockerfile
 ├── .gitignore
 ├── README.md
+│
 └── templates/
-├── index.html
-└── result.html
+    ├── index.html
+    └── result.html
+```
+## Feature Description & Suggested Input Range
+
+| Feature | Meaning | Suggested Range |
+|---|---|---|
+| CRIM | Crime rate by town | 0.0 - 100.0 |
+| ZN | Residential land zoned percentage | 0 - 100 |
+| INDUS | Non-retail business area proportion | 0 - 30 |
+| CHAS | Charles River dummy variable (1 = near river, 0 = not near) | 0 or 1 |
+| NOX | Nitric oxide pollution concentration | 0.3 - 1.0 |
+| RM | Average number of rooms per house | 3 - 9 |
+| AGE | Percentage of old houses built before 1940 | 0 - 100 |
+| DIS | Distance to employment centers | 1 - 15 |
+| RAD | Accessibility to highways | 1 - 25 |
+| PTRATIO | Student-teacher ratio | 10 - 25 |
+| LSTAT | Percentage of lower-status population | 1 - 40 |
+
+
+
 
 
 ## Author
