@@ -127,34 +127,28 @@
             transform: translateY(0);
         }
 
-        /* Tablet */
         @media (max-width: 768px) {
             .container {
                 padding: 30px 25px;
             }
-
             .grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
         }
 
-        /* Mobile */
         @media (max-width: 480px) {
             .container {
                 padding: 25px 15px;
                 border-radius: 15px;
             }
-
             .grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
             }
-
             .form-group input {
                 padding: 10px 12px;
             }
-
             .btn {
                 padding: 14px;
             }
@@ -175,67 +169,67 @@
                 <div class="form-group">
                     <label>CRIM</label>
                     <span class="description">Per capita crime rate</span>
-                    <input type="number" step="any" name="CRIM" placeholder="e.g. 0.00632" required>
+                    <input type="number" step="any" name="CRIM" placeholder="Range: 0.0 - 100.0" required>
                 </div>
 
                 <div class="form-group">
                     <label>ZN</label>
-                    <span class="description">Residential land zone</span>
-                    <input type="number" step="any" name="ZN" placeholder="e.g. 18.0" required>
+                    <span class="description">Residential land zone (%)</span>
+                    <input type="number" step="any" name="ZN" placeholder="Range: 0 - 100" required>
                 </div>
 
                 <div class="form-group">
                     <label>INDUS</label>
                     <span class="description">Non-retail business acres</span>
-                    <input type="number" step="any" name="INDUS" placeholder="e.g. 2.31" required>
+                    <input type="number" step="any" name="INDUS" placeholder="Range: 0 - 30" required>
                 </div>
 
                 <div class="form-group">
                     <label>CHAS</label>
-                    <span class="description">River view (0 or 1)</span>
-                    <input type="number" step="any" name="CHAS" placeholder="0 or 1" required>
+                    <span class="description">River view (0 = No, 1 = Yes)</span>
+                    <input type="number" step="any" name="CHAS" placeholder="0 or 1 only" required>
                 </div>
 
                 <div class="form-group">
                     <label>NOX</label>
                     <span class="description">Pollution level</span>
-                    <input type="number" step="any" name="NOX" placeholder="e.g. 0.538" required>
+                    <input type="number" step="any" name="NOX" placeholder="Range: 0.3 - 1.0" required>
                 </div>
 
                 <div class="form-group">
                     <label>RM</label>
                     <span class="description">Average rooms per dwelling</span>
-                    <input type="number" step="any" name="RM" placeholder="e.g. 6.575" required>
+                    <input type="number" step="any" name="RM" placeholder="Range: 3 - 9" required>
                 </div>
 
                 <div class="form-group">
                     <label>AGE</label>
                     <span class="description">Units built before 1940 (%)</span>
-                    <input type="number" step="any" name="AGE" placeholder="e.g. 65.2" required>
+                    <input type="number" step="any" name="AGE" placeholder="Range: 0 - 100" required>
                 </div>
 
                 <div class="form-group">
                     <label>DIS</label>
                     <span class="description">Distance to employment</span>
-                    <input type="number" step="any" name="DIS" placeholder="e.g. 4.09" required>
+                    <input type="number" step="any" name="DIS" placeholder="Range: 1 - 15" required>
                 </div>
 
                 <div class="form-group">
                     <label>RAD</label>
                     <span class="description">Highway accessibility</span>
-                    <input type="number" step="any" name="RAD" placeholder="e.g. 1.0" required>
+                    <input type="number" step="any" name="RAD" placeholder="Range: 1 - 25" required>
                 </div>
 
                 <div class="form-group">
                     <label>PTRATIO</label>
                     <span class="description">Pupil-teacher ratio</span>
-                    <input type="number" step="any" name="PTRATIO" placeholder="e.g. 15.3" required>
+                    <input type="number" step="any" name="PTRATIO" placeholder="Range: 10 - 25" required>
                 </div>
 
                 <div class="form-group">
                     <label>LSTAT</label>
                     <span class="description">% lower status population</span>
-                    <input type="number" step="any" name="LSTAT" placeholder="e.g. 4.98" required>
+                    <input type="number" step="any" name="LSTAT" placeholder="Range: 1 - 40" required>
                 </div>
 
             </div>
