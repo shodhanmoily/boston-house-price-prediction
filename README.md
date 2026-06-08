@@ -6,7 +6,7 @@ A Machine Learning web application built with FastAPI to predict Boston house pr
 
 ## Live Demo
 
-Deployed on Railway — [Click Here](https://boston-house-price-prediction-production.up.railway.app)
+Deployed on Railway — [Click Here]
 
 ---
 
